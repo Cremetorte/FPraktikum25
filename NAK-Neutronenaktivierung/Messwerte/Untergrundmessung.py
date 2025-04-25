@@ -16,16 +16,17 @@ std_dev = np.std(data[1])
 mean_array = mean_rate*np.ones_like(data[0])
 
 
+print(f"Mittlerer Hintergrund: {mean_rate:.4f}±{std_dev:.4f} Bq")
+print(f"Standardabweichung des Mittelwertes: {std_dev/np.sqrt(len(data[0]+1))}")
 
+# # Plot
+# plt.plot(data[0], data[1], color="blue", marker="x", linestyle="", label="Messpunkte der Hintergrundstrahlung")
+# plt.plot(data[0], mean_array, color="red", linestyle="-.", label=fr"Mittelwert der Messdaten: ({mean_rate:.3f}$\pm${std_dev:.3f})/s")
+# plt.fill_between(data[0], mean_array-std_dev, mean_array+std_dev, color="lightgrey", label="Standardabweichung der Messdaten")
 
-# Plot
-plt.plot(data[0], data[1], color="blue", marker="x", linestyle="", label="Messpunkte der Hintergrundstrahlung")
-plt.plot(data[0], mean_array, color="red", linestyle="-.", label=fr"Mittelwert der Messdaten: ({mean_rate:.3f}$\pm${std_dev:.3f})/s")
-plt.fill_between(data[0], mean_array-std_dev, mean_array+std_dev, color="lightgrey", label="Standardabweichung der Messdaten")
+# plt.legend()
+# plt.xlabel(fr"Zeit [s]")
+# plt.ylabel(fr"Anzahl der Zerfälle [s$^{{-1}}$]")
+# plt.title("Messung der Untergrundstrahlung")
 
-plt.legend()
-plt.xlabel(fr"Zeit [s]")
-plt.ylabel(fr"Anzahl der Zerfälle [s$^{{-1}}$]")
-plt.title("Messung der Untergrundstrahlung")
-
-plt.savefig("Untergrundmessung.png", dpi=300)
+# plt.savefig("Untergrundmessung.png", dpi=300)
