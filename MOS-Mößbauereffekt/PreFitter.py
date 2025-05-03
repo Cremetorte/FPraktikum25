@@ -35,10 +35,10 @@ slider_axes = [
 ]
 
 # Slider erstellen
-slider_mu = Slider(slider_axes[0], 'mu', 0.1, 5.0, valinit=display_params[0])
-slider_a = Slider(slider_axes[1], 'a', 0.1, 2.0, valinit=display_params[1])
-slider_b = Slider(slider_axes[2], 'b', -1.0, 2.0, valinit=display_params[2])
-slider_c = Slider(slider_axes[3], 'c', -2.0, 3.0, valinit=display_params[3])
+slider_mu = Slider(slider_axes[0], 'mu', 0, 500, valinit=display_params[0])
+slider_a = Slider(slider_axes[1], 'a', 0, -20000, valinit=display_params[1])
+slider_b = Slider(slider_axes[2], 'b', 0, 10, valinit=display_params[2])
+slider_c = Slider(slider_axes[3], 'c', 0, 1300, valinit=display_params[3])
 
 
 # Update-Funktion

@@ -29,8 +29,8 @@ smooth_stahl_velocity = np.linspace(np.min(stahl_velocity), np.max(stahl_velocit
 
 # -------------------------------------------------------------- Funktionen
 
-def velocity_to_energy(velocitys):
-    return velocitys
+def real_velocity(velocitys):
+    return 0.0315108935309545 * velocitys - 8.011193385475183
 
 def lorentz_1_peak(x, c, mu, a, b):
     return c + a/((x-mu)**2 + b**2)
@@ -99,37 +99,6 @@ plt.clf()
 
 
 
-
-
-# ------------------------------------------------------------------------ Prepare 6 peaks
-
-cuts = [0, 125-30, 195-30, 250-30, 310-30, 385-30, len(weicheisen_velocity)]
-
-p0 = [1200, ]
-
-for i in range(1, len(cuts)):
-    cut_we_velocity = weicheisen_velocity[cuts[i-1]:cuts[i]]
-    cut_we_count = weicheisen_count[cuts[i-1]:cuts[i]]
-    p0_temp = [1200, 0.5*(cuts[i]-cuts[i-1]), -50, 0.5]
-    popt, pcov = curve_fit(lorentz_1_peak, cut_we_velocity, cut_we_count, p0=p0_temp)
-    p0.append(popt[1])
-    p0.append(popt[2])
-    p0.append(popt[3])
-    plt.plot(cut_we_velocity, cut_we_count)
-    plt.plot(smooth_weicheisen_velocity, lorentz_1_peak(smooth_weicheisen_velocity, *popt), color="red", label="Fit")
-    plt.legend()
-    plt.grid()
-    plt.savefig(f"Plots/Weicheisen_Fit_peak{i}.png")
-    plt.clf()
-    
-    
-    
-print(p0)
-
-
-popt_6_peaks, pcov_6_peaks = curve_fit(lorentz_6_peaks, stahl_velocity, stahl_count,
-                          p0=p0
-                          )
 
 
 
