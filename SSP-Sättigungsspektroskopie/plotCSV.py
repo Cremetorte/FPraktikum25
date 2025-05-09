@@ -126,7 +126,9 @@ plt.ylabel("U [V]")
 plt.title("Rohdaten der Sättigungsspektroskopie")
 plt.grid()
 plt.legend()
-plt.savefig("Plots/Sättigungsspektroskopie_Rohdaten.png")
+plt.show()
+# plt.savefig("Plots/Sättigungsspektroskopie_Rohdaten.png")
+
 
 
 # Prepare data for the table
@@ -153,3 +155,13 @@ headers = ["peak number", "$\\mu$ [s]", "a [V]", "\\sigma [s]"]
 
 # Print the table
 print(tabulate(table_data, headers=headers, tablefmt="latex_raw"))
+
+
+
+# convert time to frequency
+# peak 1:
+dist_peak_2_2__2_3 =  popt[8 + 3*4] - popt[8 + 1*3]
+
+d_nu = 267 # MHz
+m = d_nu/dist_peak_2_2__2_3
+
