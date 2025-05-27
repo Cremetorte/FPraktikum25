@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('TkAgg')
 
 files = ["JJ1_IVC_002_avg=100.dat", "JJ2_IVC_002_avg=100.dat", "JJ3_IVC_002_avg=100.dat"]
 labels = ["Josephsonkontakt 1", "Josephsonkontakt 2", "Josephsonkontakt 3"]
