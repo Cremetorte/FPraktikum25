@@ -30,5 +30,6 @@ for i, file in enumerate(files):
     plt.title(f'IV-Kennlinie des Josephson-Kontaktes {i+1}')
     plt.grid()
     plt.legend()
-    plt.savefig(f"Plots/IVC_{labels[i]}.png", dpi=300)
+    # plt.savefig(f"Plots/IVC_{labels[i]}.png", dpi=300)
+    plt.show()
     plt.clf()

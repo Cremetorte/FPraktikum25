@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.widgets import RectangleSelector
+import matplotlib
+matplotlib.use("TkAgg")
 
 
 IVC = np.loadtxt('Daten/JJ2_IVC_002_avg=100.dat', skiprows=0)

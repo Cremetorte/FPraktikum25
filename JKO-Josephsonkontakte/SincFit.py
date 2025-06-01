@@ -26,15 +26,15 @@ for file in files:
     I_sp, I_c = data_temp[:, 0].T, data_temp[:, 1].T
 
     # convert to H Field
-    mu_0 = 1.2566373-6
-    k = 0.1075
+    mu_0 = 1.2566373e-6
+    k = 0.2234
     H = k/mu_0 * I_sp
     
     # put into data dictionary
     data[file] = (H, I_c)
     
 plt.title("Sinc-Fit der Josephson-Kontakte")
-plt.xlabel("H [mA/m]")
+plt.xlabel("H [kA/m]")
 plt.ylabel("I_c [µA]")
 plt.grid()
 plt.legend()
@@ -44,7 +44,7 @@ for i, file in enumerate(files):
     H, I_c = data[file]
     
     # Fit the data
-    popt, pcov = curve_fit(sinc, H, I_c, p0=[0.1, 0.1, 0])
+    popt, pcov = curve_fit(sinc, H, I_c, p0=[1e-5, 1/7000, 0])
     errors = np.sqrt(np.diag(pcov))
     
     # Generate x values for the fit line
@@ -54,7 +54,11 @@ for i, file in enumerate(files):
     print(f"Fit parameters for {labels[i]}: {popt}, errors: {errors}")
     
     # Plot the data and the fit
-    plt.plot(H * 1e3, I_c * 1e6, marker='x', label=f"{labels[i]} - Daten")
-    plt.plot(x_fit * 1e3, y_fit * 1e6, linestyle='-', label=f"{labels[i]} - Fit")
-    plt.legend()
-    plt.show()
+    plt.plot(H *1e-3, I_c * 1e6, marker='x', label=f"{labels[i]} - Daten")
+    plt.plot(x_fit *1e-3, y_fit * 1e6, linestyle='-', label=f"{labels[i]} - Fit")
+    plt.title(f"Sinc-Fit an {labels[i]}")
+    plt.xlabel("$H$ [kA/m]")
+    plt.ylabel("$I_c$ [µA]")
+    plt.grid()
+    plt.legend(loc='upper right')
+    plt.savefig("Plots/SincFit_" + labels[i].replace(" ", "_") + ".png")

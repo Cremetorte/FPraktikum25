@@ -46,7 +46,7 @@ for i, file in enumerate(files):
     m, c = popt
     dm, dc = np.sqrt(np.diag(pcov))
     
-    print(fr"R = {m} \pm {dm} \Omega")
+    print(fr"R = {m:.4e} \pm {dm:.4e} \Omega")
 
     # Create a linear fit line
     fit_line = linear_fit(x_data, m, c)
@@ -65,5 +65,5 @@ for i, file in enumerate(files):
     
     # plt.show()
     
-    plt.savefig(f"Plots/IVC_{labels[i]}_linfit.png", dpi=300)
+    # plt.savefig(f"Plots/IVC_{labels[i]}_linfit.png", dpi=300)
     plt.clf()

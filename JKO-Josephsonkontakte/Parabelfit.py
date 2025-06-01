@@ -6,14 +6,15 @@ from scipy.optimize import curve_fit
 from matplotlib.widgets import SpanSelector, Button
 
 
-filename = "Daten/JJ1_IcH_001.dat"
+filename = "Daten/JJ3_IcH_001.dat"
+titlestr = "Josephsonkontakt 3: $I_c$ vs $H$"
 
 data = np.loadtxt(filename, skiprows=0)
 
 I_sp, I_c = data[:, 0].T, data[:, 1].T
 
-mu_0 = 1.2566373-6
-k = 0.1075
+mu_0 = 1.2566373e-6
+k = 0.2234
 H = k/mu_0 * I_sp
 
 # plt.plot(H*1e3, I_c*1e6, label="Messdaten")
@@ -22,21 +23,22 @@ H = k/mu_0 * I_sp
 
 def default_view(axes):
     axes.clear()
-    axes.set_title("$I_c$ vs $H$")
-    axes.set_xlabel("$H$ [mA/m]")
+    axes.set_title(titlestr)
+    axes.set_xlabel("$H$ [kA/m]")
     axes.set_ylabel("$I_c$ [µA]")
-    axes.plot(H * 1e3, I_c * 1e6, label="Messdaten")
+    axes.plot(H*1e-3, I_c*1e6, label="Messdaten")
     axes.legend()
     axes.grid()
     plt.draw()
+    plt.title(titlestr)
     print("Set/Reset view to default.")
     
     
 last_fit_params = None
 
 def onselect(xmin, xmax):
-    xmin = xmin*1e-3
-    xmax = xmax*1e-3
+    xmin = xmin*1e3
+    xmax = xmax*1e3
     mask = (H >= xmin) & (H <= xmax)
     xdata = H[mask]
     ydata = I_c[mask]
@@ -48,7 +50,7 @@ def onselect(xmin, xmax):
     global last_fit_params
     last_fit_params = (popt, pcov)
     
-    ax.plot(xrange*1e3, np.polyval(popt, xrange)*1e6, label="Fit", color="red")
+    ax.plot(xrange*1e-3, np.polyval(popt, xrange)*1e6, label="Fit", color="red")
     plt.draw()
     
     
