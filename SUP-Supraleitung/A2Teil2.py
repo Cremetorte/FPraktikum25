@@ -34,9 +34,10 @@ xi = np.sqrt(  np.sqrt(3) * 0.95 * phi_0 / np.pi**2 / B_c2)
 d_xi = 1/(2* np.sqrt(  np.sqrt(3) * 0.95 * phi_0 / np.pi**2 / B_c2)) * np.sqrt(3) * 0.95 * phi_0 / np.pi**2 / B_c2 * dB_c2
 print(f"xi = {xi:.4e} ± {d_xi:.4e}")
 
-
-lambda_l = 0.8*xi
-d_lambda = 0.8 * d_xi
+kappa = 0.931
+dkappa = 1.171e-3
+lambda_l = kappa*xi
+d_lambda = np.sqrt((kappa * d_xi)**2 + (xi * dkappa)**2)
 
 print(f"lambda_l = {lambda_l:.4e} ± {d_lambda:.4e}")#
 

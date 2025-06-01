@@ -2,7 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.widgets import RectangleSelector
 import matplotlib
+<<<<<<< HEAD
 matplotlib.use("TkAgg")
+=======
+matplotlib.use('TkAgg')
+>>>>>>> bfee2d301562a8278a7f136c1b3039612f49e037
 
 
 IVC = np.loadtxt('Daten/JJ2_IVC_002_avg=100.dat', skiprows=0)
@@ -11,18 +15,18 @@ U, I = np.hsplit(IVC, 2)
 mask = (I>0) & (U<1e-3)
 
 U = U[mask]
-U = U.flatten()[int(len(U)/2):]
-# U = U[::-1]
+U = U.flatten()[:int(len(U)/2):]
+U = U[::-1]
 I = I[mask]
-I = I.flatten()[int(len(I)/2):]
-# I = I[::-1]
+I = I.flatten()[:int(len(I)/2):]
+I = I[::-1]
 # sort_idx = np.argsort(U.flatten())
 # U = U[sort_idx]
 # I = I[sort_idx]
 
 
 for i in range(len(I)):
-    if U[i] > 2e-4:
+    if U[i] > 6e-5:
         print(f"U[{i}] = {U[i]} V")
 
         I_0 = (I[i] + I[i-1])/2
