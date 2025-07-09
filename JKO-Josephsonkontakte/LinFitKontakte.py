@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.use('TkAgg')
+# matplotlib.use('TkAgg')
 import numpy as np
 from scipy.optimize import curve_fit
 
@@ -46,7 +46,7 @@ for i, file in enumerate(files):
     m, c = popt
     dm, dc = np.sqrt(np.diag(pcov))
     
-    print(fr"R = {m:.4e} \pm {dm:.4e} \Omega")
+    print(fr"R = {1/m:.4e} \pm {dm/m**2:.4e} \Omega")
 
     # Create a linear fit line
     fit_line = linear_fit(x_data, m, c)
@@ -63,7 +63,7 @@ for i, file in enumerate(files):
     plt.grid()
     plt.legend()
     
-    # plt.show()
+    plt.show()
     
     # plt.savefig(f"Plots/IVC_{labels[i]}_linfit.png", dpi=300)
     plt.clf()

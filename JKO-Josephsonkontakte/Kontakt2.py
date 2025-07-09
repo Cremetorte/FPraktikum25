@@ -2,11 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.widgets import RectangleSelector
 import matplotlib
-<<<<<<< HEAD
 matplotlib.use("TkAgg")
-=======
-matplotlib.use('TkAgg')
->>>>>>> bfee2d301562a8278a7f136c1b3039612f49e037
 
 
 IVC = np.loadtxt('Daten/JJ2_IVC_002_avg=100.dat', skiprows=0)

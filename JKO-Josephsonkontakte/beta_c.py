@@ -15,9 +15,9 @@ d_beta_c = 2 * 4*I_0 / (np.pi * I_r) * np.sqrt((4 * dI_0/(np.pi * I_r))**2 + (4*
 phi_0 = 2.067833848e-15  # Wb, magnetic flux quantum
 mu_0 = 1.256637061e-6  # H/m, permeability of free space
 
-R = np.array([6.604, 12.458, 15.770]) 
+R = np.array([15.142, 8.027, 0.6341]) 
 
-dR = np.array([0.011, 0.563, 4.3]) # m, uncertainty in R
+dR = np.array([0.002, 0.004, 0.0002]) # m, uncertainty in R
 
 capacity = beta_c * phi_0 / (2 * np.pi * I_0 * R[1]**2)
 d_capacity = np.sqrt(
