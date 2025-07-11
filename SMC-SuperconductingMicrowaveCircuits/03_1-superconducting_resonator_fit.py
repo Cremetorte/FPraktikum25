@@ -20,25 +20,30 @@ import glob
 ##################
 ### User Input ###
 ##################
-file_list =  ['Data/Group_041_2025_07_01_14.55.45_n3_VNA_res1_lin_20_3.24GHz/Group_041_2025_07_01_14.55.45_n3_VNA_res1_lin_20_3.24GHz.dat',
- 'Data/Group_041_2025_07_01_15.24.40_n3_VNA_res3_lin_20_4.05GHz/Group_041_2025_07_01_15.24.40_n3_VNA_res3_lin_20_4.05GHz.dat',
- 'Data/Group_041_2025_07_01_15.12.53_n3_VNA_res2_lin_20_3.61GHz/Group_041_2025_07_01_15.12.53_n3_VNA_res2_lin_20_3.61GHz.dat',
- 'Data/Group_041_2025_07_01_15.41.51_n3_VNA_res4_lin_21_5.22GHz/Group_041_2025_07_01_15.41.51_n3_VNA_res4_lin_21_5.22GHz.dat']
+file_list =  ['Data/3_1/Group_041_2025_07_01_14.55.45_n3_VNA_res1_lin_20_3.24GHz/Group_041_2025_07_01_14.55.45_n3_VNA_res1_lin_20_3.24GHz.dat',
+ 'Data/3_1/Group_041_2025_07_01_15.12.53_n3_VNA_res2_lin_20_3.61GHz/Group_041_2025_07_01_15.12.53_n3_VNA_res2_lin_20_3.61GHz.dat',
+ 'Data/3_1/Group_041_2025_07_01_15.24.40_n3_VNA_res3_lin_20_4.05GHz/Group_041_2025_07_01_15.24.40_n3_VNA_res3_lin_20_4.05GHz.dat',
+ 'Data/3_1/Group_041_2025_07_01_15.41.51_n3_VNA_res4_lin_21_5.22GHz/Group_041_2025_07_01_15.41.51_n3_VNA_res4_lin_21_5.22GHz.dat']
 
 guess_dict_list = [
-    {'f_0 (Hz)': 3.24e9, 'kappa_0/2pi (Hz)': 10e6},
-    {'f_0 (Hz)': 4.05e9, 'kappa_0/2pi (Hz)': 10e6},
-    {'f_0 (Hz)': 3.61e9, 'kappa_0/2pi (Hz)': 10e6},
+    {'f_0 (Hz)': 3.24272e9, 'kappa_0/2pi (Hz)': 0.53e6},
+    {'f_0 (Hz)': 3.61e9, 'kappa_0/2pi (Hz)': 1359013.5316951978},
+    {'f_0 (Hz)': 4.05e9, 'kappa_0/2pi (Hz)': 1880016.458535551},
     {'f_0 (Hz)': 5.22e9, 'kappa_0/2pi (Hz)': 10e6},
 ]
 
 # bg_cutoff_freqs_list = [
 #     (None, None),
 # ]
-bg_cutoff_freqs_list = [(guess_dict['f_0 (Hz)'] - 2*guess_dict['kappa_0/2pi (Hz)'], guess_dict['f_0 (Hz)'] + 2*guess_dict['kappa_0/2pi (Hz)']) 
-                        for guess_dict in guess_dict_list]
+bg_cutoff_freqs_list = [
+    (3.23999e9, 3.24532e9),
+    (3.60676e9, 3.611e9),
+    (4.05e9, 4.057e9),
+    (5.23e9, 5.218e9),
+]
 
-ftype = 'trans_through'
+
+ftype = 'trans_side'
 
 ##################
 ##################

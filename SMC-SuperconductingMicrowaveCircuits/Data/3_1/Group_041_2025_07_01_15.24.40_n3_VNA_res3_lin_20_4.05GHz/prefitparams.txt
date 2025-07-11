@@ -1,0 +1,4 @@
+peak=4.05334e9
+width=0.81e6
+cutoff_left=4.05e9
+cutoff_right= 4.057e9

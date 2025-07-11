@@ -16,23 +16,32 @@ import time
 ##################
 ### User Input ###
 ##################
+
+freqs = [3.24, 3.61, 4.05, 5.22]
+
 kerr_file_list =[
-    '../data/your_data/your_data.dat',
+    "Data/3_2/Group_041_2025_07_01_14.58.47_n3_VNA_res1_sweep_28_3.24GHz/Group_041_2025_07_01_14.58.47_n3_VNA_res1_sweep_20_3.24GHz.dat",
+    "Data/3_2/Group_041_2025_07_01_15.12.53_n3_VNA_res2_sweep_28_3.61GHz/Group_041_2025_07_01_15.12.53_n3_VNA_res2_sweep_20_3.61GHz.dat",
+    "Data/3_2/Group_041_2025_07_01_15.24.40_n3_VNA_res3_sweep_28_4.05GHz/Group_041_2025_07_01_15.24.40_n3_VNA_res3_sweep_20_4.05GHz.dat",
+    "Data/3_2/Group_041_2025_07_01_15.41.51_n3_VNA_res4_sweep_28_5.22GHz/Group_041_2025_07_01_15.41.51_n3_VNA_res4_sweep_20_5.22GHz.dat"
+
             ]
 
-bg_fit_file_list = [
-    '../results/Nb_fit_result/your_fit.csv',
-                ]
+
+bg_fit_file_list = [f"results/Nb_fit_result/fit_result_{f}GHz.csv" for f in freqs]
 
 guess_dict_list = [
-    {'kappa_0': {'value': None, 'min': None, 'max': None, 'vary': None},
-     'kappa_1': {'value': None, 'min': None, 'max': None, 'vary': None},
-     'kappa_2': {'value': None, 'min': None, 'max': None, 'vary': None},
-     'Kerr': {'value': None, 'min': None, 'max': None, 'vary': None}},
+    {'kappa_0': {'value': 0.3e9, 'min': None, 'max': None, 'vary': None},
+     'kappa_1': {'value': 0.6e9, 'min': None, 'max': None, 'vary': None},
+     'kappa_2': {'value': 1.5e9, 'min': None, 'max': None, 'vary': None},
+     'Kerr': {'value': 0.03e9, 'min': None, 'max': None, 'vary': None}},
 ]
 
 P_lims_list=[
-    (None, None),
+    (0, 0),
+    (0, 0),
+    (0, 0),
+    (0, 0)
            ]
 
 ##################
