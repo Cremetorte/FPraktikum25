@@ -28,8 +28,8 @@ file_list =  ['Data/3_1/Group_041_2025_07_01_14.55.45_n3_VNA_res1_lin_20_3.24GHz
 guess_dict_list = [
     {'f_0 (Hz)': 3.24272e9, 'kappa_0/2pi (Hz)': 0.53e6},
     {'f_0 (Hz)': 3.61e9, 'kappa_0/2pi (Hz)': 1359013.5316951978},
-    {'f_0 (Hz)': 4.05e9, 'kappa_0/2pi (Hz)': 1880016.458535551},
-    {'f_0 (Hz)': 5.22e9, 'kappa_0/2pi (Hz)': 10e6},
+    {'f_0 (Hz)': 4.0532e9, 'kappa_0/2pi (Hz)': 1.5e6},
+    {'f_0 (Hz)': 5.224e9, 'kappa_0/2pi (Hz)': 1.44e6},
 ]
 
 # bg_cutoff_freqs_list = [
@@ -38,7 +38,7 @@ guess_dict_list = [
 bg_cutoff_freqs_list = [
     (3.23999e9, 3.24532e9),
     (3.60676e9, 3.611e9),
-    (4.05e9, 4.057e9),
+    (4.0505e9, 4.0565e9),
     (5.23e9, 5.218e9),
 ]
 

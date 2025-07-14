@@ -11,7 +11,7 @@ After editing those areas, the code will plot the data and generate the needed f
 
 
 
-from src.modules.testPCB_module import *
+from modules.testPCB_module import *
 
 ############ code here ############
 file_list =[

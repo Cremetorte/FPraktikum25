@@ -9,8 +9,8 @@ The user input section contains parameters as lists, so you can fit multiple dat
 - "ftype" contains the type of fit. Possible values are "refl_open", "refl_short", "refl_through", "trans_through" and "trans_side".
 """
 
-from src.modules.sparam_fit_module import fit
-from src.modules import data_module, plot_module
+from modules.sparam_fit_module import fit
+from modules import data_module, plot_module
 import os
 import pandas as pd
 import warnings
